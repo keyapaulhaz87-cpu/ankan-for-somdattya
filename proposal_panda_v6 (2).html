@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ankan → Somdattya 💕</title>
+<style>
+  :root{
+    --bg:#fff0f6; --card:#fff; --accent:#ff4d84; --muted:#7a4a5b;
+    --quote-size:18px;
+  }
+  html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;}
+  body{
+    background: var(--bg);
+    display:flex;align-items:center;justify-content:center;padding:18px;
+    color:var(--muted);
+  }
+
+  /* panda repeating svg background (soft pink themed) */
+  .stage{
+    width:100%;max-width:900px;height:640px;border-radius:18px;overflow:hidden;position:relative;
+    box-shadow:0 14px 40px rgba(0,0,0,0.08);
+    background-color: rgba(255,240,247,0.7);
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160"><rect width="160" height="160" fill="%23ffeef6"/><g transform="translate(10,10)"><circle cx="40" cy="40" r="28" fill="%23ffffff"/><circle cx="28" cy="30" r="6" fill="%23000000"/><circle cx="52" cy="30" r="6" fill="%23000000"/><ellipse cx="40" cy="50" rx="12" ry="8" fill="%23000000"/><circle cx="40" cy="40" r="3" fill="%23000000" opacity="0.06"/></g><g transform="translate(90,90)"><circle cx="40" cy="40" r="28" fill="%23ffffff"/><circle cx="28" cy="30" r="6" fill="%23000000"/><circle cx="52" cy="30" r="6" fill="%23000000"/><ellipse cx="40" cy="50" rx="12" ry="8" fill="%23000000"/></g></svg>');
+    background-repeat: repeat;
+    background-size: 220px 220px;
+    padding:28px;box-sizing:border-box;
+    background-blend-mode: lighten;
+  }
+
+  header{display:flex;align-items:center;justify-content:space-between;padding:8px 12px 0 12px}
+  h1{margin:0;color:var(--accent);font-weight:800;font-size:20px}
+  .slides{position:relative;height:100%;width:100%}
+  .slide{
+    position:absolute;inset:0;padding:36px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    background:linear-gradient(180deg, rgba(255,255,255,0.65), rgba(255,250,253,0.55));
+    border-radius:12px;backdrop-filter: blur(4px);
+    opacity:0;pointer-events:none;transition:opacity 600ms ease;
+  }
+  .slide.active{opacity:1;pointer-events:auto}
+  .card-title{font-size:28px;font-weight:900;color:var(--accent);margin-bottom:12px;text-align:center}
+  .card-sub{font-size:18px;margin-bottom:18px;color:var(--muted)}
+  .btn{
+    appearance:none;border:none;padding:12px 20px;border-radius:999px;font-weight:800;
+    cursor:pointer;background:linear-gradient(90deg,#ff9ac9,#ff66a3);color:white;box-shadow:0 8px 20px rgba(255,102,163,0.12);
+  }
+  .btn.ghost{background:transparent;border:2px solid rgba(255,102,163,0.12);color:var(--accent)}
+  .quotes{max-width:760px;width:100%;display:flex;flex-direction:column;gap:10px;align-items:center;margin-bottom:16px}
+  .quote{
+    font-size:var(--quote-size);font-weight:700;padding:12px 16px;border-radius:12px;
+    background:rgba(255,255,255,0.6);width:100%;max-width:760px;box-shadow:0 8px 24px rgba(0,0,0,0.03);
+  }
+
+  /* alternating pastel colors for slide 2 */
+  .q-pink{color:#ff6fa7}
+  .q-lav{color:#b892d6}
+  .q-mint{color:#66d9b8}
+  .q-blue{color:#7fbef2}
+
+  /* typewriter */
+  .typewriter{font-size:20px;font-weight:800;min-height:44px}
+  .cursor{display:inline-block;width:8px;background:var(--accent);margin-left:6px;animation:blink 1s steps(2) infinite}
+  @keyframes blink{50%{opacity:0}}
+
+  /* proposal slide */
+  .proposal-text{font-size:26px;font-weight:900;color:var(--accent);margin-bottom:14px}
+  .actions{display:flex;gap:14px;align-items:center;justify-content:center}
+
+  /* love quotes after yes: bigger and faster */
+  .love-list{display:flex;flex-direction:column;gap:12px;align-items:center;margin-top:18px}
+  .love-item{font-size:20px;font-weight:900;padding:10px 16px;border-radius:12px;background:rgba(255,240,246,0.9);max-width:700px}
+
+  /* hearts container */
+  .hearts{position:absolute;inset:0;pointer-events:none;overflow:hidden;border-radius:12px}
+  .heart{position:absolute;font-size:22px;transform:translate(-50%,-50%);opacity:0.95}
+
+  footer{position:absolute;left:0;right:0;bottom:8px;text-align:center;font-size:13px;color:#cc5a80}
+
+  @media(max-width:640px){
+    .stage{height:780px;padding:16px}
+    .card-title{font-size:22px}
+    .proposal-text{font-size:20px}
+  }
+
+</style>
+</head>
+<body>
+<div class="stage" role="main" aria-label="Proposal slides for Somdattya">
+  <header><h1>💌 Ankan → Somdattya</h1></header>
+
+  <div class="slides">
+    <!-- Slide 1 -->
+    <section id="s1" class="slide active" aria-hidden="false">
+      <div class="card-title">Ankan wants to say something to you</div>
+      <div class="card-sub">Miss Somdattya 💕</div>
+      <button class="btn" id="okBtn" aria-label="OK to continue">OK 💞</button>
+      <div style="height:8px"></div>
+      <div class="card-sub" style="font-weight:700;font-size:13px;color:#b85a78">Tap OK to start the music and continue</div>
+    </section>
+
+    <!-- Slide 2 -->
+    <section id="s2" class="slide" aria-hidden="true">
+      <div class="card-title">Hey Somdattya, this page is just for you 💕</div>
+      <div class="quotes" id="typeArea" aria-live="polite">
+        <!-- typewriter lines will be inserted here -->
+      </div>
+      <button class="btn ghost" id="nextBtn">Next 💌</button>
+    </section>
+
+    <!-- Slide 3 -->
+    <section id="s3" class="slide" aria-hidden="true">
+      <div class="proposal-text">Will you be mine, Somdattya?</div>
+      <div class="actions">
+        <button class="btn" id="yesBtn">Yes 💞</button>
+        <button class="btn ghost" id="noBtn">No 💔</button>
+      </div>
+
+      <div class="love-list" id="loveList" style="display:none"></div>
+
+      <div style="height:18px"></div>
+      <button class="btn ghost" id="replayBtn" style="display:none">Replay ✨</button>
+
+      <div class="hearts" id="hearts"></div>
+    </section>
+  </div>
+
+  <footer>Made by Ankan 💖</footer>
+</div>
+
+<!-- audio (copyright-free from pixabay) - will be started on user tap -->
+<audio id="bg" preload="auto">
+  <source src="https://cdn.pixabay.com/download/audio/2022/02/23/audio_8a233b6f4d.mp3?filename=romantic-background-112199.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  // helper to switch slides with fade
+  const slides = ["s1","s2","s3"];
+  function show(id){
+    slides.forEach(s=> {
+      const el = document.getElementById(s);
+      if(s===id){ el.classList.add('active'); el.setAttribute('aria-hidden','false'); }
+      else { el.classList.remove('active'); el.setAttribute('aria-hidden','true'); }
+    });
+  }
+
+  // Typewriter quotes for slide2 (alternating colors)
+  const typeLines = [
+    {text:"“If kisses were stars, I’d give you the sky ✨”", cls:"q-pink"},
+    {text:"“You’re my favorite notification 💖”", cls:"q-lav"},
+    {text:"“Every time I see you, my heart does a little happy dance 💓”", cls:"q-mint"},
+    {text:"“You make my world brighter just by being in it 🌷”", cls:"q-blue"},
+    {text:"“Falling for you wasn’t part of the plan — but it’s my favorite accident 💞”", cls:"q-pink"},
+    {text:"“My Wi-Fi connects faster when I think of you 😉”", cls:"q-lav"},
+    {text:"“You are my today and all of my tomorrows 💫”", cls:"q-mint"}
+  ];
+
+  const typeArea = document.getElementById('typeArea');
+  let lineIndex = 0;
+  let charIndex = 0;
+  let typing = false;
+  let currentLineEl = null;
+
+  function typeNextLine(){
+    if(lineIndex >= typeLines.length){ return; }
+    const line = typeLines[lineIndex];
+    // create container for this line with color class
+    const cont = document.createElement('div');
+    cont.className = 'quote ' + line.cls;
+    const tw = document.createElement('span');
+    tw.className = 'typewriter';
+    cont.appendChild(tw);
+    const cursor = document.createElement('span');
+    cursor.className = 'cursor';
+    cont.appendChild(cursor);
+    typeArea.appendChild(cont);
+    currentLineEl = tw;
+    charIndex = 0;
+    typing = true;
+    const txt = line.text;
+    const interval = setInterval(()=> {
+      if(charIndex <= txt.length){
+        currentLineEl.textContent = txt.slice(0,charIndex);
+        charIndex++;
+      } else {
+        clearInterval(interval);
+        typing = false;
+        lineIndex++;
+        // small pause then type next
+        setTimeout(()=> typeNextLine(), 650);
+      }
+    }, 40); // typing speed
+  }
+
+  // start slide2 typing when shown
+  document.getElementById('okBtn').addEventListener('click', ()=>{
+    // start music on first user interaction
+    const audio = document.getElementById('bg');
+    if(audio.paused){ audio.play().catch(()=>{}); }
+    show('s2');
+    // clear any previous content
+    typeArea.innerHTML = '';
+    lineIndex = 0;
+    setTimeout(()=> typeNextLine(), 300);
+  });
+
+  // next button to go to slide3
+  document.getElementById('nextBtn').addEventListener('click', ()=>{
+    show('s3');
+  });
+
+  // No button runs away
+  const noBtn = document.getElementById('noBtn');
+  const stage = document.querySelector('.stage');
+  function moveNo(){
+    const rect = noBtn.getBoundingClientRect();
+    const parentRect = stage.getBoundingClientRect();
+    const maxX = parentRect.width - rect.width - 40;
+    const maxY = parentRect.height - rect.height - 40;
+    const x = Math.random() * maxX + 10;
+    const y = Math.random() * maxY + 10;
+    noBtn.style.position = 'absolute';
+    noBtn.style.left = x + 'px';
+    noBtn.style.top = y + 'px';
+  }
+  noBtn.addEventListener('mouseenter', moveNo);
+  noBtn.addEventListener('click', moveNo);
+
+  // Yes button reveals love quotes faster and bigger
+  const yesBtn = document.getElementById('yesBtn');
+  const loveList = document.getElementById('loveList');
+  const replayBtn = document.getElementById('replayBtn');
+  function showLove(){
+    loveList.style.display = 'flex';
+    loveList.innerHTML = '';
+    const extra = [
+      "You are my today and all of my tomorrows 💫",
+      "I still get butterflies every time I think of you 🦋",
+      "With you, every moment feels like home 💕",
+      "Love found me when it found you 💖",
+      "Every love story is beautiful — ours is my favorite ✨"
+    ];
+    // make quotes bigger and faster
+    extra.forEach((q,i)=>{
+      setTimeout(()=>{
+        const d = document.createElement('div');
+        d.className = 'love-item';
+        d.style.opacity = 0;
+        d.style.transform = 'translateY(10px)';
+        d.textContent = q;
+        loveList.appendChild(d);
+        // animate
+        requestAnimationFrame(()=> {
+          d.style.transition = 'opacity 450ms ease, transform 450ms ease';
+          d.style.opacity = 1;
+          d.style.transform = 'translateY(0)';
+        });
+      }, i*400);
+    });
+    // hearts
+    burstHearts(20);
+    // stop no button from moving
+    noBtn.removeEventListener('mouseenter', moveNo);
+    // show replay after quotes
+    setTimeout(()=>{ replayBtn.style.display = 'inline-block'; }, extra.length*400 + 600);
+  }
+  yesBtn.addEventListener('click', ()=> {
+    // hide buttons
+    yesBtn.style.display = 'none';
+    noBtn.style.display = 'none';
+    // ensure music playing (in case)
+    const audio = document.getElementById('bg');
+    if(audio.paused) audio.play().catch(()=>{});
+    showLove();
+  });
+
+  // replay resets everything
+  replayBtn.addEventListener('click', ()=> {
+    // reset slides
+    show('s1');
+    // reset positions/styles
+    loveList.innerHTML = '';
+    loveList.style.display = 'none';
+    yesBtn.style.display = '';
+    noBtn.style.display = '';
+    replayBtn.style.display = 'none';
+    // reset no btn pos
+    noBtn.style.position = '';
+    noBtn.style.left = '';
+    noBtn.style.top = '';
+    // stop music
+    const audio = document.getElementById('bg');
+    audio.pause();
+    audio.currentTime = 0;
+    // clear type area
+    typeArea.innerHTML = '';
+  });
+
+  // hearts functions
+  const heartsContainer = document.getElementById('hearts');
+  function burstHearts(n){
+    for(let i=0;i<n;i++){
+      setTimeout(()=> {
+        const el = document.createElement('div');
+        el.className = 'heart';
+        el.textContent = '💖';
+        const x = Math.random()*90 + 5;
+        const y = Math.random()*70 + 20;
+        el.style.left = x + '%';
+        el.style.top = y + '%';
+        el.style.fontSize = (18 + Math.random()*18) + 'px';
+        heartsContainer.appendChild(el);
+        // float up
+        el.animate([{opacity:1, transform:'translateY(0) scale(1)'},{opacity:0, transform:'translateY(-140px) scale(1.2)'}], {duration:1800 + Math.random()*900, easing:'ease-out'});
+        setTimeout(()=> el.remove(), 3000);
+      }, i*60);
+    }
+  }
+
+  // ensure audio will start only on user interaction (we play on OK or Yes)
+  // no autoplay attempts here to respect mobile rules
+
+  // initialize: ensure only slide1 shown
+  show('s1');
+
+</script>
+</body>
+</html>
